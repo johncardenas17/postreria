@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - Postreria Salome</title>
+    <link rel="stylesheet" href="CSS/carrito.css">
+</head>
+<body>
+    <a href="index.html" class="boton"></a>
+    <h1>Carrito de Compras</h1>
+    <div class="container">
+        <h2>Productos Agregados:</h2>
+        <ul id="lista-productos">
+        </ul>
+        <p>Total a Pagar: $<span id="total-pagar">0.00</span></p>
+        <button onclick="finalizarCompra()">Finalizar Compra</button>
+        <button onclick="limpiarCarrito()">Limpiar Carrito</button>
+    </div>
+    <a href="productos.html">Seguir Comprando</a>
+    
+    <script>
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        let listaProductos = document.getElementById('lista-productos');
+        let totalPagarElement = document.getElementById('total-pagar');
+        
+        // Mostrar los productos en el carrito y calcular el total a pagar
+        function mostrarProductosEnCarrito() {
+            listaProductos.innerHTML = ''; // Limpiar la lista de productos
+            let totalPagar = 0;
+            
+            carrito.forEach(producto => {
+                let listItem = document.createElement('li');
+                listItem.textContent = `${producto.producto} - $${producto.precio}`;
+                listaProductos.appendChild(listItem);
+                totalPagar += parseFloat(producto.precio); // Sumar el precio del producto al total
+            });
+            
+            totalPagarElement.textContent = totalPagar.toFixed(0);
+        }
+        
+        mostrarProductosEnCarrito(); // Mostrar productos al cargar la página
+        
+        // Función para limpiar el carrito
+        function limpiarCarrito() {
+            localStorage.removeItem('carrito'); // Remover el carrito del almacenamiento local
+            mostrarProductosEnCarrito(); // Actualizar la vista del carrito
+        }
+
+        // Función para finalizar la compra
+        function finalizarCompra() {
+            let totalPagar = parseFloat(totalPagarElement.textContent);
+            alert(`Total a pagar: $${totalPagar.toFixed(0)}`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesion - Postreria Salome</title>
+    <link rel="stylesheet" href="CSS/login.css">
+    
+</head>
+<body>
+    <button onclick="redireccionar()">Ir a la página principal</button>
+    <script>
+        function redireccionar() {
+            window.location.href = "index.html"; 
+        }
+    </script>
+    <div class="container">
+        <h1>Iniciar Sesión</h1>
+        <form id="loginForm" action="procesar_login.php" method="post">
+            <input type="email" name="usuario" placeholder="Usuario" required>
+            <input type="password" name="contrasena" placeholder="Contraseña" required>
+            <input type="submit" value="Iniciar Sesión">
+        </form>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            window.location.href = "productos.html";
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>

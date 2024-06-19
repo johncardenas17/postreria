@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Postreria Salome</title>
+    <link rel="stylesheet" href="CSS/productos.css">
+</head>
+<body>
+    <a href="carrito.html" class="boton"></a>
+    <div class="container">
+        <h1>Productos</h1>
+        <div class="producto">
+            <img src="IMAGENES/img_4.jpg" alt="Crumble de manzana">
+            <div class="detalle">
+                <h3>Crumble de manzana</h3>
+                <p>Precio: $15.000</p>
+                <p>Cantidad disponible: 10 unidades</p>
+                <div class="carrito"><br>
+                    <button onclick="agregarAlCarrito('Crumble de manzana', 15000)">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto">
+            <img src="IMAGENES/img_5.jpg" alt="Cheesecake">
+            <div class="detalle">
+                <h3>Cheesecake</h3>
+                <p>Precio: $20.000</p>
+                <p>Cantidad disponible: 14 unidades</p>
+                <div class="carrito"><br>
+                    <button onclick="agregarAlCarrito('Cheesecake', 20000)">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto">
+            <img src="IMAGENES/img_6.webp " alt="Macedonia de frutas">
+            <div class="detalle">
+                <h3>Macedonia de frutas</h3>
+                <p>Precio: $18.000</p>
+                <p>Cantidad disponible: 8 unidades</p>
+                <div class="carrito"><br>
+                    <button onclick="agregarAlCarrito('Macedonia de frutas', 18000)">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto">
+            <img src="IMAGENES/img_8.jpg" alt="Brownies">
+            <div class="detalle">
+                <h3>Brownies</h3>
+                <p>Precio: $12.000</p>
+                <p>Cantidad disponible: 5 unidades</p>
+                <div class="carrito"><br>
+                    <button onclick="agregarAlCarrito('Brownies', 12000)">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto">
+            <img src="IMAGENES/img_9.jpg" alt="Angel food">
+            <div class="detalle">
+                <h3>Angel food</h3>
+                <p>Precio: $9.000</p>
+                <p>Cantidad disponible: 10 unidades</p>
+                <div class="carrito"><br>
+                    <button onclick="agregarAlCarrito('Angel food', 9000)">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto">
+            <img src="IMAGENES/img_10.jpg" alt="Pavlova">
+            <div class="detalle">
+                <h3>Pavlova</h3>
+                <p>Precio: $25.000</p>
+                <p>Cantidad disponible: 15 unidades</p>
+                <div class="carrito"><br>
+                    <button onclick="agregarAlCarrito('Pavlova', 25000)">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto">
+            <img src="IMAGENES/img_11.jpg" alt="Panna Cotta">
+            <div class="detalle">
+                <h3>Panna Cotta</h3>
+                <p>Precio: $13.000</p>
+                <p>Cantidad disponible: 9 unidades</p>
+                <div class="carrito"><br>
+                    <button onclick="agregarAlCarrito('Panna Cotta', 13000)">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto">
+            <img src="IMAGENES/img_12.jpg" alt="Crème brûlée">
+            <div class="detalle">
+                <h3>Crème brûlée</h3>
+                <p>Precio: $6.000</p>
+                <p>Cantidad disponible: 6 unidades</p>
+                <div class="carrito"><br>
+                    <button onclick="agregarAlCarrito('Crème brûlée', 6000)">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto">
+            <img src="IMAGENES/img_13.webp" alt="Clafoutis">
+            <div class="detalle">
+                <h3>Clafoutis</h3>
+                <p>Precio: $11.000</p> 
+                <p>Cantidad disponible: 7 unidades</p>
+                <div class="carrito"><br>
+                    <button onclick="agregarAlCarrito('Clafoutis', 11000)">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        function agregarAlCarrito(producto, precio, cantidad) {
+            // Obtener el carrito desde el almacenamiento local o crear uno si no existe
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            
+            // Agregar el nuevo producto al carrito
+            carrito.push({producto: producto, precio: precio, cantidad: cantidad});
+            
+            // Guardar el carrito actualizado en el almacenamiento local
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            
+            // Redirigir al usuario a la página del carrito de compras
+            window.location.href = 'carrito.html';
+        } 
+      
+    </script>
+    
+</body>
+</html>

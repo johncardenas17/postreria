@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrase - Postreria Salome</title>
+    <link rel="stylesheet" href="CSS/registro.css">
+</head>
+<body>
+    <button onclick="redireccionar()">Ir a la página principal</button>
+    <script>
+        function redireccionar() {
+            window.location.href = "index.html"; 
+        }
+    </script>
+    <div class="container">
+        <h1>Crear Cuenta</h1>
+        <form form id="registroForm" action="procesar_registro.php" method="post">
+            <input type="text" name="nombre" placeholder="Nombre" required>
+            <input type="email" name="email" placeholder="Correo electrónico" required>
+            <input type="password" name="contrasena" placeholder="Contraseña" required>
+            <input type="password" name="confirmar_contrasena" placeholder="Confirmar Contraseña" required>
+            <input type="text" name="direccion" placeholder="Direccion" required>
+            <input type="tel" name="numero" placeholder="Numero" required>
+            <input type="submit" value="Registrarse">
+        </form>
+    </div>
+    <script>
+        document.getElementById('registroForm').addEventListener('submit', function(event) {
+            window.location.href = "login.html";
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>
